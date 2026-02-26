@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Kanban Task Manager</h1>
+            <button class="btn-primary" id="btnNovaTarefa">
+                <span>+</span> Nova Tarefa
+            </button>
+        </header>
+
+        <!-- Modal de Cadastro/Edição -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalTitle">Nova Tarefa</h2>
+                    <button class="btn-close" id="btnFecharModal">&times;</button>
+                </div>
+                
+                <div class="modal-body">
+                    <!-- Formulário -->
+                    <form id="formTarefa" class="form-tarefa">
+                        <input type="hidden" id="tarefaId">
+                        
+                        <div class="form-group">
+                            <label for="titulo">Título da Tarefa</label>
+                            <input type="text" id="titulo" required placeholder="Digite o título...">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Matéria (selecione uma cor)</label>
+                            <div class="materias-grid" id="materiasGrid">
+                                <!-- Matérias serão geradas via JS -->
+                            </div>
+                            <input type="hidden" id="materia" required>
+                            <input type="hidden" id="cor" required>
+                        </div>
+                    </form>
+
+                    <!-- Calendário Lateral -->
+                    <div class="calendario-lateral">
+                        <h3>Selecione a Data</h3>
+                        <div class="calendario-container">
+                            <div class="calendario-header">
+                                <button type="button" class="btn-mes" id="btnMesAnterior">←</button>
+                                <span id="mesAno" class="mes-ano"></span>
+                                <button type="button" class="btn-mes" id="btnMesProximo">→</button>
+                            </div>
+                            
+                            <div class="calendario-dias-semana">
+                                <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+                            </div>
+                            
+                            <div class="calendario-dias" id="calendarioDias"></div>
+                            
+                            <div class="calendario-footer">
+                                <button type="button" class="btn-hoje" id="btnHoje">📅 Hoje</button>
+                                <span id="dataSelecionadaDisplay" class="data-selecionada">Nenhuma data selecionada</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn-secondary" id="btnCancelar">Cancelar</button>
+                    <button class="btn-primary" id="btnSalvar">Salvar Tarefa</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kanban Board -->
+        <div class="kanban-board">
+            <div class="coluna" data-status="pendente">
+                <div class="coluna-header">
+                    <h2>⏳ Pendente</h2>
+                    <span class="contador" id="contPendente">0</span>
+                </div>
+                <div class="coluna-tarefas" id="pendente"></div>
+            </div>
+
+            <div class="coluna" data-status="andamento">
+                <div class="coluna-header">
+                    <h2>⚡ Em Andamento</h2>
+                    <span class="contador" id="contAndamento">0</span>
+                </div>
+                <div class="coluna-tarefas" id="andamento"></div>
+            </div>
+
+            <div class="coluna" data-status="concluida">
+                <div class="coluna-header">
+                    <h2>✅ Concluída</h2>
+                    <span class="contador" id="contConcluida">0</span>
+                </div>
+                <div class="coluna-tarefas" id="concluida"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
