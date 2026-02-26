@@ -1,13 +1,11 @@
 // Configuração inicial das matérias (cores fixas)
 const MATERIAS = [
-    { sigla: 'MAT', nome: 'Matemática', cor: '#3498db', classe: 'azul' },
-    { sigla: 'PORT', nome: 'Português', cor: '#2ecc71', classe: 'verde' },
-    { sigla: 'HIST', nome: 'História', cor: '#e74c3c', classe: 'vermelho' },
-    { sigla: 'GEO', nome: 'Geografia', cor: '#f1c40f', classe: 'amarelo' },
-    { sigla: 'FIS', nome: 'Física', cor: '#9b59b6', classe: 'roxo' },
-    { sigla: 'QUI', nome: 'Química', cor: '#e67e22', classe: 'laranja' },
-    { sigla: 'BIO', nome: 'Biologia', cor: '#e84393', classe: 'rosa' },
-    { sigla: 'ING', nome: 'Inglês', cor: '#00bcd4', classe: 'ciano' }
+    { sigla: 'LOPAL', nome: 'Lógica de programação e algoritmos', cor: '#3498db', classe: 'azul' },
+    { sigla: 'PBE', nome: 'Programação Back-end', cor: '#2ecc71', classe: 'verde' },
+    { sigla: 'SOP', nome: 'Sistemas operacionais', cor: '#e74c3c', classe: 'vermelho' },
+    { sigla: 'ARI', nome: 'Aquitetura de redes e IOT', cor: '#f1c40f', classe: 'amarelo' },
+    { sigla: 'LIMA', nome: 'Linguagem de marcação', cor: '#9b59b6', classe: 'roxo' },
+    { sigla: 'LER', nome: 'Levantamento de requisitos', cor: '#e67e22', classe: 'laranja' } 
 ];
 
 // Estado da aplicação
@@ -173,7 +171,7 @@ function renderizarMaterias() {
         
         div.innerHTML = `
             <div class="materia-cor ${materia.classe}"></div>
-            <span class="materia-sigla">${materia.sigla}</span>
+            <span class="materia-sigla">${materia.nome}</span>
         `;
         
         div.addEventListener('click', () => {
